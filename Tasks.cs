@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TaskManager
 {
-   public class Tasks
+    public class Tasks
     {
         #region Fields
         private string memberName;
@@ -13,7 +13,7 @@ namespace TaskManager
         private bool completed;
         #endregion
 
-       
+
         public string MemberName
         {
             get
@@ -81,7 +81,28 @@ namespace TaskManager
         }
         public static int ParseMethod()
         {
-            return int.Parse(Console.ReadLine());
+
+            try
+            {
+                int input = int.Parse(Console.ReadLine());
+                return input;
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("That was not a number.");
+                return ParseMethod();
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Too large a number");
+                return ParseMethod();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.GetType()}.");
+                return ParseMethod();
+            }
+
         }
 
         public static void DisplayTasks()
@@ -105,14 +126,28 @@ namespace TaskManager
             }
             int input = ParseMethod();
             input--;
-            ListOfLists.tasks.Remove(ListOfLists.tasks[input]);
-                
-                //plugging into the list at the top 
-                //tasks.Remove(tasks{input});
-                /*Console.WriteLine("Delete Tasks: " + delete.MemberName);
-                Console.WriteLine("Delete Tasks: " + delete.Description);
-                Console.WriteLine("Delete Tasks: " + delete.DueDate.ToString("MM/dd/yyyy"));
-                Console.WriteLine("Delete Tasks: " + delete.Completed);*/
+            try
+            {
+                ListOfLists.tasks.Remove(ListOfLists.tasks[input]);
+
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("number out of range.");
+                DeleteTasks();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"{e.GetType()}.");
+                DeleteTasks();
+            }
+
+            //plugging into the list at the top 
+            //tasks.Remove(tasks{input});
+            /*Console.WriteLine("Delete Tasks: " + delete.MemberName);
+            Console.WriteLine("Delete Tasks: " + delete.Description);
+            Console.WriteLine("Delete Tasks: " + delete.DueDate.ToString("MM/dd/yyyy"));
+            Console.WriteLine("Delete Tasks: " + delete.Completed);*/
         }
 
         //bool method
@@ -120,45 +155,71 @@ namespace TaskManager
         {
 
 
-            
-                    int num = 1;
-                    
-                    Console.WriteLine("Enter task description: ");
-                   
-                    foreach (Tasks item in ListOfLists.tasks)
-                    {
-                        Console.WriteLine($"{num}. {item.Description}");
-                        num++;
-                    }
-                    
-                    int input = ParseMethod();
-                    input--;
-                    
-             Console.WriteLine("Are you sure");
-            string answer = Console.ReadLine();
-            if(answer == "y")
+
+            int num = 1;
+
+            Console.WriteLine("Enter task description: ");
+
+            foreach (Tasks item in ListOfLists.tasks)
             {
-                ListOfLists.tasks[input].Completed = true;
+                Console.WriteLine($"{num}. {item.Description}");
+                num++;
             }
-            
-                    
-                
-                
-            
+
+            int input = ParseMethod();
+            input--;
+
+            try
+            {
+                bool valid = ListOfLists.tasks[input].Completed; //validating that there is an index at number entered.
+                string answer = "";
+                while (answer != "y" && answer != "n")
+                {
+                    Console.WriteLine("Are you sure? y/n.");
+                    answer = Console.ReadLine().ToLower();
+                }
+
+                if (answer == "y")
+                {
+                    ListOfLists.tasks[input].Completed = true;
+                }
+            }
+            //string answer = "";
+            //while(answer != "y" && answer != "n")
+            //{
+            //    Console.WriteLine("Are you sure? y/n.");
+            //    answer = Console.ReadLine().ToLower();
+            //}
+
+            //if (answer == "y")
+            //{
+            //    ListOfLists.tasks[input].Completed = true;
+            //}
+            catch
+            {
+                Console.WriteLine("That was not correct. Try again.");
+                CompleteTask();
+
+            }
+
+
+
+
+
         }
 
         public static void AddTask()
         {
             int count = 0;
             Tasks task = new Tasks();
-            Console.WriteLine($"Enter team member name." );
+            Console.WriteLine($"Enter team member name.");
             task.MemberName = Console.ReadLine();
 
             Console.WriteLine("Task description: ");
             task.Description = Console.ReadLine();
 
             bool again = true;
-            while(again)
+            while (again)
             {
                 Console.WriteLine("enter due date");
                 string input = Console.ReadLine();
@@ -216,8 +277,8 @@ namespace TaskManager
  * {
  * 
  * return Quit();*/
-  
-  
-  
- 
+
+
+
+
 
