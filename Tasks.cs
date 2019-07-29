@@ -109,10 +109,11 @@ namespace TaskManager
         {
             foreach (Tasks display in ListOfLists.tasks)
             {
-                Console.WriteLine(display.MemberName); //tab out?
-                Console.WriteLine(display.Description);
-                Console.WriteLine(display.DueDate);
-                Console.WriteLine(display.Completed);
+                Console.WriteLine("_________________________________________________");
+                Console.WriteLine($"Team member: " + display.MemberName+".");
+                Console.WriteLine("Task Description: " + display.Description);
+                Console.WriteLine("Due Date: " + display.DueDate+"  " + "Status: " + display.Completed);
+                Console.WriteLine("________________________________________________");
             }
         }
         public static void DeleteTasks()
@@ -133,7 +134,7 @@ namespace TaskManager
             }
             catch (ArgumentOutOfRangeException)
             {
-                Console.WriteLine("number out of range.");
+                Console.WriteLine("Number out of Range.");
                 DeleteTasks();
             }
             catch (Exception e)
@@ -153,9 +154,6 @@ namespace TaskManager
         //bool method
         public static void CompleteTask()
         {
-
-
-
             int num = 1;
 
             Console.WriteLine("Enter task description: ");
@@ -201,10 +199,6 @@ namespace TaskManager
                 CompleteTask();
 
             }
-
-
-
-
 
         }
 
@@ -259,7 +253,6 @@ namespace TaskManager
     }
 }
 //methods for adding, deleting, methods for updating, 
-
 
 //lab 9 for quit char response = console.readkey(true).KeyChar
 //if (response == 'y')
