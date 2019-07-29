@@ -1,0 +1,11 @@
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\bin\Debug\netcoreapp2.2\TaskManager.deps.json
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\bin\Debug\netcoreapp2.2\TaskManager.runtimeconfig.json
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\bin\Debug\netcoreapp2.2\TaskManager.runtimeconfig.dev.json
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\bin\Debug\netcoreapp2.2\TaskManager.dll
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\bin\Debug\netcoreapp2.2\TaskManager.pdb
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\obj\Debug\netcoreapp2.2\TaskManager.csprojAssemblyReference.cache
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\obj\Debug\netcoreapp2.2\TaskManager.csproj.CoreCompileInputs.cache
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\obj\Debug\netcoreapp2.2\TaskManager.AssemblyInfoInputs.cache
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\obj\Debug\netcoreapp2.2\TaskManager.AssemblyInfo.cs
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\obj\Debug\netcoreapp2.2\TaskManager.dll
+C:\Users\achia\OneDrive\Desktop\Capstone\TaskManager\obj\Debug\netcoreapp2.2\TaskManager.pdb
